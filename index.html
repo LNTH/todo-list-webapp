@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite App</title>
+    </head>
+    <body>
+        <div id="title"> 
+            <img id="logo" alt="Vite logo" />
+            <h1>TODO List</h1>
+        </div>
+
+        <div id="app_container">
+            <div id ="error_message"></div>
+            <input type="week" name="week" id="week_picker"/>
+            <div id="week_row">
+                <div class="week_day" id="week_day_0">
+                    <div class="day_name">Mon</div>
+                    <div class="line_border" id="line_border_0"></div>
+                    <div class="date" id="date_0">01/01</div>
+                </div>
+                <div class="week_day" id="week_day_1">
+                    <div class="day_name">Tue</div>
+                    <div class="line_border" id="line_border_1"></div>
+                    <div class="date" id="date_1">02/01</div>
+                </div>
+                <div class="week_day" id="week_day_2">
+                    <div class="day_name">Wed</div>
+                    <div class="line_border" id="line_border_2"></div>
+                    <div class="date" id="date_2">03/01</div>
+                </div>
+                <div class="week_day" id="week_day_3">
+                    <div class="day_name">Thu</div>
+                    <div class="line_border" id="line_border_3"></div>
+                    <div class="date" id="date_3">04/01</div>
+                </div>
+                <div class="week_day" id="week_day_4">
+                    <div class="day_name">Fri</div>
+                    <div class="line_border" id="line_border_4"></div>
+                    <div class="date" id="date_4">05/01</div>
+                </div>
+                <div class="week_day" id="week_day_5">
+                    <div class="day_name">Sat</div>
+                    <div class="line_border" id="line_border_5"></div>
+                    <div class="date" id="date_5">06/01</div>
+                </div>
+                <div class="week_day" id="week_day_6">
+                    <div class="day_name">Sun</div>
+                    <div class="line_border" id="line_border_6"></div>
+                    <div class="date" id="date_6">07/01</div>
+                </div>
+            </div>
+            
+            <div id="insert_desc_container">
+                <p id="insert_desc">What do you want to complete?</p>
+                <i class="material-icons" id="insert_desc_icon"></i>
+            </div>
+
+            <div id="insert_row">
+                <input type="text" id="insert_txt" placeholder="Enter your work here"/>
+                <button id="insert_btn" type="button">Add</button>
+            </div>
+            <p style="margin-top: 0; font-size: 0.5em">(Order doesn't matter, just do everything)</p>
+
+            <div id="task_list">
+                <table id="task_table"></table>
+            </div>
+        
+        </div>
+
+        <script type="module" src="/main.js"></script>
+        <script type="module" src="./scripts/task.js"></script>
+        <script type="module" src="./scripts/anim_icon.js"></script>
+        <script type="module" src="./scripts/week.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,195 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0; /*disable scrolling*/
+  min-width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, rgba(14, 187, 218, 0.8), rgba(132, 0, 255, 0.9));;
+}
+
+#logo {
+  height: 6em;
+  padding: 20px 20px 20px 0px;
+  will-change: filter;
+  transition: filter 300ms;
+}
+#logo:hover {
+  filter: drop-shadow(0 0 2em #020657aa);
+}
+#logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #020657aa);
+}
+
+#title {
+  display: flex;
+  max-width: max-content;
+  margin: 0 auto;
+  padding: 2rem;
+}
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#app_container {
+  max-width: 40%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: white;
+  padding: 1.5rem
+}
+
+#week_row {
+  display: flex;
+  padding-top: 1rem;
+}
+
+#week_day_0 {
+  margin-left: 0;
+}
+
+#week_day_6 {
+  margin-right: 0;
+}
+
+.week_day {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /*new line*/
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 10%;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: rgb(240, 240, 240);
+  text-decoration-color: black;
+}
+
+.day_name, .date {
+  font-size: 1em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.line_border {
+  width: 100%; 
+  height: 1px; 
+  background-color: black;
+  
+}
+
+.selected_day {
+  background-color: rgb(132, 0, 255);
+  color: white
+}
+
+#insert_desc_container {
+  margin-top: 2rem;
+  display: flex;
+}
+
+#insert_desc {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+}
+
+#insert_desc_icon {
+  padding-left: 1rem;
+}
+
+#insert_row {
+  width: 100%;
+  padding-top: 1rem;
+  display: flex
+}
+
+#insert_btn {
+  width: 20%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 1px solid ;
+  border-bottom: 1px solid ;
+  border-right: 1px solid ;
+  border-left: 0px;
+  border-color: green;
+  padding: 0.6em 1.8em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.25s;
+  color: green;
+}
+
+#insert_btn:hover {
+  color: white;
+  background-color: green;
+  outline: none;
+}
+
+#insert_txt {
+  border-top: 1px solid ;
+  border-bottom: 1px solid ;
+  border-left: 1px solid ;
+  border-right: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 80%;
+  padding: 1rem;
+}
+
+#insert_txt:focus {
+  outline: none;
+}
+
+.task_delete_btn {
+  color: tomato;
+}
+#task_list {
+  width: 100%;
+}
+
+#task_table {
+  border-spacing: 0px;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.task_row:hover { background-color: rgba(14, 187, 218, 0.1) !important;} /*overwrite*/
+
+#task_list {
+  margin-top: 2rem;
+}
+
+.task_done_btn {
+  width: 10%;
+}
+
+.task_content {
+  width: 80%;
+}
+
+.task_del_btn {
+  width: 10%;
+}
+
+#error_message {
+  width: 80%;
+  color: red;
+  visibility: hidden;
+}
