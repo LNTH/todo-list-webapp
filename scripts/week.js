@@ -82,6 +82,28 @@ function showWeekDate(weekValue) {
     }
 }
 
+function removeWeekDayHighLight() {
+    // remove current highlight div
+    for (const weekDayDiv of weekDayDivs) {
+        if (weekDayDiv.classList.contains("selected_day")) {
+            weekDayDiv.classList.remove("selected_day")
+            const borderDiv = weekDayDiv.querySelector(".line_border")
+            borderDiv.style.backgroundColor = "black" // change back to black line
+            break
+        } 
+    }
+}
+
+function highlightWeekDay(weekDayIdx) {
+    removeWeekDayHighLight()
+    console.log(weekDayIdx)
+    const weekDayDiv = document.querySelector(`#week_day_${weekDayIdx}`)
+    const border = document.querySelector(`#line_border_${weekDayIdx}`)
+    weekDayDiv.classList.add("selected_day") // purple hightlight
+    border.style.backgroundColor = "white" // change to white line
+}
+
+
 function hightlightToday() { 
     /*
     * only run when user open website 1st time
@@ -95,10 +117,7 @@ function hightlightToday() {
     const currentWeek = getTodayWeekNumberForInputWeek(today)
     weekPicker.value = currentWeek
 
-    const todayDiv = document.querySelector(`#week_day_${currentDayIdx}`)
-    const todayBorder = document.querySelector(`#line_border_${currentDayIdx}`)
-    todayDiv.classList.add("selected_day") // purple hightlight
-    todayBorder.style.backgroundColor = "white" // change to white line
+    highlightWeekDay(currentDayIdx)
 
     // render days in current week
     // run when first time open web -> 
@@ -120,5 +139,5 @@ function getSelectedDay() { // dd/mm/yyyy
     return `${selectedDay}/${selectedYear}`
 }
 
-export {hightlightToday, getSelectedDay, weekPicker, showWeekDate}
+export {hightlightToday, highlightWeekDay, getSelectedDay, weekPicker, showWeekDate, weekDayDivs}
 

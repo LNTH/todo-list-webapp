@@ -4,8 +4,8 @@
 ## TODOs
 - [x] Select Week
 - [x] IndexedDB Testing (select, insert)
-- [ ] Click on date
-- [ ] Insert task to IndexedDB
+- [x] Click on date
+- [x] Insert task to IndexedDB
 - [ ] Complete task
 - [ ] Remove task
 - [ ] Update Task Table CSS
