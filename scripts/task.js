@@ -51,13 +51,21 @@ async function showTasks() {
     return tasks
 }
 
-function insertTask() {
-    const tableRowCount = table.rows.length
-    const currentTask = document.querySelector('#insert_txt').value
-    if (currentTask === "") {
+async function insertTask() {
+    const taskContent = document.querySelector('#insert_txt').value
+    if (taskContent === "") {
         return
     }
-    renderTableRow(false, tableRowCount, currentTask)
+
+    const new_task = {
+        content: taskContent,
+        dueDate: getSelectedDay(),
+        completed: false
+    }
+    const result = await addTask(new_task)
+    console.log(result)
+    const tableRowCount = table.rows.length
+    renderTableRow(new_task.completed, tableRowCount, new_task.content)
 }
 
 export {insertTask, showTasks}

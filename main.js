@@ -21,7 +21,7 @@ weekPicker.addEventListener("change", async (event) => {
 
 
 const insertBtn = document.querySelector("#insert_btn")
-insertBtn.addEventListener('click', () => insertTask())
+insertBtn.addEventListener('click', async () => insertTask())
 
 
 
