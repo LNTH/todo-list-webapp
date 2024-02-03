@@ -32,3 +32,42 @@ export function addTask(data) {
         }
     })
 }
+
+function getTaskById(taskId) {
+    return new Promise((resolve, reject) => {
+        const transaction = db.transaction([STORE_NAME], "read")
+        const store = transaction.objectStore(STORE_NAME)
+        const query = store.get(taskId)
+
+        query.onerror = () => {
+            reject(query.error)
+        }
+
+        query.onsuccess = () => {
+            resolve(query.result)
+        }
+    })
+}
+
+export async function completeTask(taskId) {
+    try {
+        task = await getTaskById(taskId)
+        return new Promise((resolve, reject) => {
+            const transaction = db.transaction([STORE_NAME], "readwrite")
+            const store = transaction.objectStore(STORE_NAME)
+            const query = store.put(task)
+
+            query.onerror = () => {
+                reject(query.error)
+            }
+
+            query.onsuccess = () => {
+                resolve(query.result)
+            }
+        }) 
+    } catch (error) {
+        console.error("Error:", error);
+    }
+
+    
+}

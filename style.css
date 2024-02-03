@@ -178,14 +178,21 @@ h1 {
 
 .task_done_btn {
   width: 10%;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
 }
 
 .task_content {
   width: 80%;
+  vertical-align: center;
 }
 
 .task_del_btn {
   width: 10%;
+  text-align: center;
+  align-items: center;
+  vertical-align: middle;
 }
 
 #error_message {

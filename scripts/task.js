@@ -3,16 +3,29 @@ import { getTasksByDueDate, addTask } from "./task_service"
 
 const table = document.querySelector("#task_table")
 
-function renderTableRow(completed, tableRowCount, taskContent) {
+function renderTableRow(taskIdx, completed, tableRowCount, taskContent) {
 
     const row = table.insertRow(tableRowCount)
     row.classList.add("task_row")
     row.setAttribute("id",`task_row_${tableRowCount}`)
-    if (tableRowCount % 2 == 0) {
-        row.style.backgroundColor = 'rgb(240, 240, 240)'
+
+    const idDiv = row.insertCell(0)
+    const doneBtn = row.insertCell(1)
+    const content = row.insertCell(2)
+    const delBtn = row.insertCell(3)
+
+    if (completed === true) {
+        doneIcon.style.color = "green"
+        row.style.backgroundColor = "rgba(137, 233, 58, 0.1)"
+    } else if (tableRowCount % 2 == 0) {
+        row.style.backgroundColor = "rgb(240, 240, 240)"
     }
 
-    const doneBtn = row.insertCell(0)
+    idDiv.classList.add("task_id")
+    idDiv.setAttribute("id",`task_id_${tableRowCount}`)
+    idDiv.textContent = taskIdx
+    idDiv.style.visibility = "hidden"
+
     doneBtn.classList.add("task_done_btn")
     doneBtn.setAttribute("id",`task_done_btn_${tableRowCount}`)
 
@@ -22,11 +35,9 @@ function renderTableRow(completed, tableRowCount, taskContent) {
     doneIcon.textContent = 'done' 
     doneBtn.appendChild(doneIcon)
 
-    const content = row.insertCell(1)
     content.classList.add("task_content")
     content.textContent = taskContent
 
-    const delBtn = row.insertCell(2)
     delBtn.classList.add("task_done_btn")
     delBtn.setAttribute("id",`task_delete_btn_${tableRowCount}`)
     const delIcon = document.createElement('i')
@@ -34,6 +45,9 @@ function renderTableRow(completed, tableRowCount, taskContent) {
     delIcon.setAttribute('id', `task_delete_btn_${tableRowCount}`)
     delIcon.textContent = 'delete' 
     delBtn.appendChild(delIcon)
+
+
+    // doneBtn.addEventListener("click")
 
 }
 
@@ -46,7 +60,7 @@ async function showTasks() {
     for (const task of tasks) {
         const tableRowCount = table.rows.length
         console.log(task)
-        renderTableRow(false, tableRowCount, task.content)
+        renderTableRow(task.id, false, tableRowCount, task.content)
     }
     return tasks
 }
