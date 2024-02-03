@@ -6,6 +6,8 @@
 - [x] IndexedDB Testing (select, insert)
 - [x] Click on date
 - [x] Insert task to IndexedDB
+- [ ] Form
+- [ ] Import when use
 - [ ] Complete task
 - [ ] Remove task
 - [ ] Update Task Table CSS
@@ -35,3 +37,7 @@
 - Install `node npm bun vite`
 - Run `bun install`
 - Run `bun run dev`
+
+## Svelte
+
+reacive
